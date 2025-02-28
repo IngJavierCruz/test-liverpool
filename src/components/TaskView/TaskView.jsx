@@ -33,7 +33,7 @@ export default function TaskView() {
       reset({task: ""});
       inputRef.current.focus();
       setLoadingTask(false);
-    }, 500);
+    }, 300);
   };
 
   const toggleTask = (task) => {
@@ -42,7 +42,7 @@ export default function TaskView() {
       const newTasks = tasks.map(x => x.id === task.id ? {...x, completed: !x.completed} : x);
       setTasks(newTasks);
       setLoadingTask(false);
-    }, 500);
+    }, 300);
   }
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function TaskView() {
     setTimeout(() => {
       setTasks(STATE_INITIAL);
       setLoadingTask(false);
-    }, 2000);
+    }, 1000);
   }, [])
 
   return (

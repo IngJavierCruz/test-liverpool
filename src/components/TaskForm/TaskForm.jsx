@@ -2,6 +2,12 @@ import * as styles from "./styles.module.css";
 
 export default function TaskForm({ values, addTask, handleInputChange, reset, inputRef }) {
 
+  const handleKeyEnter = (event) => {
+    if (event.key === 'Enter') {
+      addTask(event);
+    }
+  }
+
   return (
     <form className={styles.container}>
       <input type="text"
@@ -10,11 +16,13 @@ export default function TaskForm({ values, addTask, handleInputChange, reset, in
         name="task"
         placeholder="Ingesa una nueva tarea"
         className={styles.input}
+        onKeyDown={handleKeyEnter}
         onChange={handleInputChange}
       />
 
       <button
         className={`${styles.btn} ${styles.btn_primary}`}
+        disabled={values.task.length === 0}
         onClick={addTask}>
         Agregar
       </button>
