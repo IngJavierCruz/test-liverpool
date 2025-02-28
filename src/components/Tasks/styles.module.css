@@ -1,0 +1,14 @@
+.message {
+  font-size: 24px;
+  font-weight: 800;
+  color: #b2b2b2;
+  padding: 4rem;
+}
+
+.wrapper_tasks {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  padding: 1rem;
+  width: 100%;
+}

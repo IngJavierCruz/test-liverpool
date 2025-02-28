@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: gray;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  height: 36px;
+}
+.btn:hover {
+  border-color: gray;
+}
+
+.btn_primary {
+  background-color: #cd008a;
+  color: white;
+}
+.btn_primary:hover {
+  border-color: #b9017c;
+}
+
+.btn_secondary {
+  background-color: white;
+  color: #cd008a;
+}
+.btn_secondary:hover {
+  border-color: #b9017c;
+}
+
+.input {
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid gray;
+  width: 250px;
+  padding: 0.5rem;
+}
