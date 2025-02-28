@@ -1,6 +1,6 @@
 Paso para iniciar el proyecto
 
 
-# Teclara los siguiente comandos
+# Teclea los siguiente comandos
 ## npm install
 ## npm run dev
