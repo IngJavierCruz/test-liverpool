@@ -4,6 +4,7 @@ import TaskForm from "../TaskForm/TaskForm";
 import Tasks from "../Tasks/Tasks";
 import * as styles from "./styles.module.css";
 import Spinner from "../Spinner/Spinner";
+import Toast from "../Toast/Toast";
 
 const STATE_INITIAL = [{
   id: new Date().getTime(),
@@ -15,6 +16,8 @@ export default function TaskView() {
   const [values, handleInputChange, reset] = useForm({task: ""});
   const [loadingTask, setLoadingTask] = useState(true);
   const [tasks, setTasks] = useState([]);
+  const [showMesageNewTask, setShowMesageNewTask] = useState(false);
+  const [showMesageToogleTask, setShowMesageToggleTask] = useState(false);
   const inputRef = useRef(null);
 
   const resetTest = (event) => {
@@ -33,7 +36,12 @@ export default function TaskView() {
       reset({task: ""});
       inputRef.current.focus();
       setLoadingTask(false);
+      setShowMesageNewTask(true);
     }, 300);
+
+    setTimeout(() => {
+      setShowMesageNewTask(false);
+    }, 1000);
   };
 
   const toggleTask = (task) => {
@@ -42,7 +50,12 @@ export default function TaskView() {
       const newTasks = tasks.map(x => x.id === task.id ? {...x, completed: !x.completed} : x);
       setTasks(newTasks);
       setLoadingTask(false);
+      setShowMesageToggleTask(true);
     }, 300);
+
+    setTimeout(() => {
+      setShowMesageToggleTask(false);
+    }, 1000);
   }
 
   useEffect(() => {
@@ -56,6 +69,9 @@ export default function TaskView() {
   return (
     <div className={styles.container}>
       { loadingTask && <Spinner hide={!loadingTask} />}
+      {showMesageNewTask && <Toast message="Tarea agregada exitosamente" />}
+      {showMesageToogleTask && <Toast message="La tarea cambio de estado" />}
+
       <div className={styles.tasks}>
         <TaskForm
           values={values}
