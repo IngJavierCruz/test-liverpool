@@ -3,7 +3,7 @@ import * as styles from "./styles.module.css";
 export default function TaskForm({ values, addTask, handleInputChange, reset, inputRef }) {
 
   const handleKeyEnter = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && values.task.length > 0) {
       addTask(event);
     }
   }
